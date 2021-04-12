@@ -1,0 +1,40 @@
+More AWK examples from class. These notes start on March 8th.
+
+BEGIN{
+	FS=","
+	OFS=":"
+	print "Looking for" country <-variable
+	energy = 0
+	energy2 = 0
+}
+	/Petajoules/ { <-a condition
+	energy=energy+$5
+}
+	/Gigajoules/{
+	energy2 = energy2 + $5 <- 5th feild
+}
+END{
+	print "energy was" energy
+	print "energy was" energy2
+}
+This example will calculate all the energy produced by a country
+using a csv file we have with information in it. 
+We run this for all and there are two types of energy in the file
+therefore we have to have two different conditions.
+
+BEGIN{
+	FS= ","
+}
+{
+	split($1,arr, "/")
+	print arr[1],arr[2]
+}
+END{
+}
+This example is using a built in function in AWK called
+split. We can use this when we want to split a single field.
+We are using a date like 10/10/2020 and we want to split this. 
+This whole date is housed in the first feild, so we use the split 
+method and can get the day, month and year seperated from it.
+
+

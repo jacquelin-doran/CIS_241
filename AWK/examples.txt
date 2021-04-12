@@ -1,0 +1,77 @@
+These are examples from class of different AWK files.
+To make these work properly they should be put in a file .awk. 
+
+BEGIN{
+	FS=","
+}
+
+/CONDITION/ {
+	print $2
+}
+
+END {
+
+}
+
+This example prints the second feild from a file that is comma seperated.
+A condition inside the forward slashes would be an if,or type statement.
+The example we used in class was /INDIA/ so only print the feild that is 
+associated with /INDIA/ in the line.
+
+BEGIN{
+	FS = ","
+	OFS= ":"
+}
+/CONDITION/ {
+
+	print $1,$2,$3
+
+}
+
+END{
+}
+
+In this example we are taking the first three feilds from a file and
+reformatting them with colons : as their seperator. Without the OFS
+they will be output with the default feild seperator, whitespaces.
+
+BEGIN{
+	FS=","
+	OFS=":"
+	print "Looking for information for the country " country
+}
+
+$0 ~ country{ (see if the line contains our regular expression for the country)
+	print $1,$2,$3
+}
+
+END{
+}
+
+This example is paired with the command 
+awk -f sample.awk -v country=India energy.csv
+With this command we pass in a variable that we defined in our script. 
+
+
+BEGIN{
+	FS=","
+	OFS=":"
+	print "Looking for" variable1
+	variable2 = 0
+}
+
+$0 ~ variable1{
+	variable2= variable2 + $5 (a field)
+}
+
+END{
+print "Energy" variable2
+}
+
+In this example we are looking at our first variable as our condition. If the
+line has our variable1, then we take our variable2 and add it to itself and 
+the line's 5th feild. In this example we were using energy as our variable2 
+and determined an overall energy consumption based on whatever contry we chose.
+
+
+

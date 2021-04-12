@@ -1,0 +1,20 @@
+#These are the answers to my Sed Project
+
+
+1) sed 's/color/colour/g' /usr/share/dict/american-english > answers.txt
+
+2)sed -n 's/FOOPS/if/g' MyFile.c | sed -n 's/BEEPBOOP/\/**/g' MyFile.c
+
+3)sed -E '/<script/,/><\/script>/d' faculty > faculty.index
+
+4)sed -n '/^#  define/p' /usr/include/limits.h | sed -n 's/#  define//gp' > clean_limits.h
+
+5)sed -i.ORIG 's/gattaca/\@\@GREATMOVIE\@\@/gp' dna.txt
+
+6)sed -f asciihex.txt /home/woodriir/241/file > decoded
+
+7)sed -n '50!G;h;$p' lyrics > ending_lyrics 
+
+8)
+
+
