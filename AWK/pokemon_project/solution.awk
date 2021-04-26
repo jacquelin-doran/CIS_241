@@ -144,6 +144,7 @@ mostPower < $5{
 	waterName = $2
 }
 
+/J|j/ {nameJ += 1}
 
 END{
 	print "The most powerful Pokemon is " name
@@ -175,4 +176,6 @@ END{
 	print "Rock- " rockName "\t " totalRockStats/numRock
 	print "Steel- " steelName "\t " totalSteelStats/numSteel
 	print "Water- " waterName "\t " totalWaterStats/numWater
+	print "\n"
+	print "There are " nameJ " Pokemon with the letter j in their names "
 }
