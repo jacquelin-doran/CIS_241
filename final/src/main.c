@@ -104,7 +104,7 @@ TEST(Final, SixTest){
 	students[9] = Mario;
 	free(students);
 }
-/**
+
 TEST(Final, SevenTest){
 	Student* students;
 	seven(&students);
@@ -115,7 +115,7 @@ TEST(Final, SevenTest){
 	students[9] = Mario;
 	free(students);
 }
-*/
+
 TEST(Final, QuadraticTest){
 	double a = 1;
 	double b = 7;

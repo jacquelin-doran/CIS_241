@@ -124,16 +124,13 @@ Student* six(){
  * 3.54    (gpa [we know he's the smart one])
  */
 void seven(Student** students){
-	Student** stu;
-	stu = (Student**)malloc(10 * sizeof(Student*));
 	Student* s;
 	s = (Student*)malloc(10 * sizeof(student));
 	s[3].first_name = "Luigi";
 	s[3].last_name = "Mario";
 	s[3].gpa = 3.54;
 	s[3].g_number = 2;
-	stu[3] = s;
-	students = &s;
+	*students = s;
 		
 }
 
@@ -169,5 +166,12 @@ double quadratic(double a, double b, double c){
  * If you are writing more than five lines you are doing it wrong.
  */
 #include <stdio.h>
+#include <ctype.h>
 void capitalize(char* str, size_t len){
+	int i;
+	for(i=0; i <len; i++){
+		str[i]= toupper(str[i]);
+	}
+
+
 }
