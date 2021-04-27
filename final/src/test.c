@@ -37,11 +37,10 @@ void one(Student* a){
  */
 
 void two(Student* a, Student* b){
-	set_first_name(a, strdup(get_first_name(b)));	
+	set_first_name(a, strdup(get_first_name(b)));
 	set_last_name(a, strdup(get_last_name(b)));
-	set_g_number(a, get_g_number(b));
 	set_gpa(a, get_gpa(b));
-
+	set_g_number(a, get_g_number(b));
 }
 
 /**
@@ -50,6 +49,7 @@ void two(Student* a, Student* b){
  */
 
 void three(Student a, Student* b){
+	*b = a;
 }
 
 /**
@@ -63,6 +63,11 @@ void three(Student a, Student* b){
  */
 Student four(){
 	Student a;
+	set_first_name(&a, "T. Yoshisaur");
+	set_last_name(&a, "Munchakoopas");
+	set_gpa(&a, 3.1);
+	set_g_number(&a, 1990);
+	set_roommate(&a, &Mario);
 	return a;
 }
 
@@ -75,8 +80,16 @@ Student four(){
  * Remember: C is pass by copy ONLY.
  */
 Student* five(){
-	return NULL;
+	Student* g;
+	g = (Student*)malloc(sizeof(student));
+	g->first_name = "Luigi";
+	g->last_name= "Mario";
+	g->g_number= 2;
+	g->gpa = 3.54; 
+
+	return g;
 }
+
 
 /**
  * Create a hunk of memory we can use as an array of 10
@@ -89,7 +102,13 @@ Student* five(){
  * 3.54    (gpa [we know he's the smart one])
  */
 Student* six(){
-	return NULL;
+	Student* hunk =(Student*)malloc(sizeof(student) * 10);
+	hunk[3].first_name = "Luigi";
+	hunk[3].last_name = "Mario";
+	hunk[3].g_number = 2;
+	hunk[3].gpa = 3.54;
+	
+	return hunk;
 }
 
 /**
@@ -105,7 +124,17 @@ Student* six(){
  * 3.54    (gpa [we know he's the smart one])
  */
 void seven(Student** students){
-	
+	Student** stu;
+	stu = (Student**)malloc(10 * sizeof(Student*));
+	Student* s;
+	s = (Student*)malloc(10 * sizeof(student));
+	s[3].first_name = "Luigi";
+	s[3].last_name = "Mario";
+	s[3].gpa = 3.54;
+	s[3].g_number = 2;
+	stu[3] = s;
+	students = &s;
+		
 }
 
 /**
@@ -115,6 +144,16 @@ void seven(Student** students){
  * -b + sqrt(b^2 - 4ac) / (2a)
  */
 double quadratic(double a, double b, double c){
+	double solution;
+	double squareRoot;
+	double denom = (2*a);
+	squareRoot = b*b;
+	squareRoot -= (4*a*c);
+	solution = sqrt(squareRoot);
+	solution -= b;
+	solution /= denom;
+	return solution;
+
 }
 
 /**
